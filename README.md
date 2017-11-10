@@ -27,10 +27,10 @@ GRF Editor - https://rathena.org/board/files/file/2766-grf-editor/
 13. Set bot's PIN code to 1007
 14. Disable ALL chat messages EXCEPT Battle EXP/Damage
 15. Enable alt V in the same location as the screenshot
-![alt text](https://github.com/Mickosis/lrn2play/raw/master/img/altvloc.png "Short Cut Location")
+![alt text](https://github.com/Mickosis/lrn2play/raw/master/img/altvloc.png "Alt V Location")
 16. Set Potion hotkey to F8, Fly Wing/Teleport to F9
 17. Press <HOME> button to start, <END> button to stop (this closes the program)
 
 (C) Mickosis 2017 <br />
-Follow me on Instagram/Twitter @Mickosis <br />
-This Bot helped you? Buy me a non-existent beer at paypal.me/xMickosis
+Follow me on [Instagram](https://www.instagram.com/mickosis/)/[Twitter](https://twitter.com/Mickosis) @Mickosis <br />
+This Bot helped you? Buy me a non-existent beer at https://paypal.me/xMickosis
