@@ -7,8 +7,8 @@ AGREEMENT:
 
 Downloads Required:
 ***
-Windows 7 - Lite preferred
-VM Ware Player - https://www.vmware.com/products/player/playerpro-evaluation.html
+Windows 7 - Lite preferred<br />
+VM Ware Player - https://www.vmware.com/products/player/playerpro-evaluation.html<br />
 GRF Editor - https://rathena.org/board/files/file/2766-grf-editor/
 
 1. Install Windows 7 in your VMWare
