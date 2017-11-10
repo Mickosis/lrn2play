@@ -1,9 +1,12 @@
+***
 AGREEMENT:
 1. I am not responsible if you are banned/caught using the software
 2. You may only use it on your own server and/or servers that allow botting/automated farming
 3. You may not take credit of the software
+***
 
 Downloads Required:
+***
 Windows 7 - Lite preferred
 VM Ware Player - https://www.vmware.com/products/player/playerpro-evaluation.html
 GRF Editor - https://rathena.org/board/files/file/2766-grf-editor/
@@ -30,6 +33,7 @@ GRF Editor - https://rathena.org/board/files/file/2766-grf-editor/
 ![alt text](https://github.com/Mickosis/lrn2play/raw/master/img/altvloc.png "Alt V Location")
 16. Set Potion hotkey to F8, Fly Wing/Teleport to F9
 17. Press <HOME> button to start, <END> button to stop (this closes the program)
+***
 
 (C) Mickosis 2017 <br />
 Follow me on [Instagram](https://www.instagram.com/mickosis/)/[Twitter](https://twitter.com/Mickosis) @Mickosis <br />
