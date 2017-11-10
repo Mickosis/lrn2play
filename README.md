@@ -22,11 +22,12 @@ GRF Editor - https://rathena.org/board/files/file/2766-grf-editor/
 9. Create RAGEXE (yes RAGEXE) shortcut in desktop
 10. Right click RAGEXE shortcut, add 1rag1 in Target field Example: (C:\Users\XXXX\Desktop\RO\Ragexe.exe 1rag1)
 11. Merge data directory into your data.grf (using GRF Editor)
-12. Send lrn2play.exe to desktop (Refer to Shortcut Locations.png)
-![](img/Shortcut Locations.png?raw=true)
+12. Send lrn2play.exe to desktop 
+![alt text](https://github.com/Mickosis/lrn2play/raw/master/img/shortcutloc.png "Short Cut Location")
 13. Set bot's PIN code to 1007
 14. Disable ALL chat messages EXCEPT Battle EXP/Damage
-15. Enable alt V (Refer to Akt V Location.png)
+15. Enable alt V 
+![alt text](https://github.com/Mickosis/lrn2play/raw/master/img/altvloc.png "Short Cut Location")
 16. Set Potion hotkey to F8, Fly Wing/Teleport to F9
 17. Press <HOME> button to start, <END> button to stop (this closes the program)
 
