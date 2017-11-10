@@ -3,7 +3,7 @@
 #AutoIt3Wrapper_Res_Description=Ragnarok Online Automated Farming System
 #AutoIt3Wrapper_Res_Fileversion=1.0.0.5
 #AutoIt3Wrapper_Res_Fileversion_AutoIncrement=p
-#AutoIt3Wrapper_Res_LegalCopyright=© 2017 Mico Rigunay. All rights reserved.
+#AutoIt3Wrapper_Res_LegalCopyright=© 2017 Mickosis. All rights reserved.
 #AutoIt3Wrapper_AU3Check_Stop_OnWarning=y
 #AutoIt3Wrapper_Run_Tidy=y
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
