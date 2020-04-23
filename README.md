@@ -1,10 +1,20 @@
 ***
+
 AGREEMENT:
-1. I am not responsible if you are banned/caught using the software
-2. You may only use it on your own server and/or servers that allow botting/automated farming
-3. You may not take credit of the software
+1. I am not responsible if you are banned using the software.
+2. You may only use it on your own server and/or servers that allow botting/automated farming.
+3. You may not take credit of the software.
+4. You will receive the software "as is" - I will not modify the source code for your specific server. Everything you need to start botting is here, you just need to study and modify it as you wish.
+
 ***
 
+SUPPORT FOR DEVELOPER:
+1. Please consider donating [here](https://paypal.me/xMickosis) if this bot worked and saved you from all the scammers out there.
+2. If you want me to help you in setting it up, I may do so if you donate [here](https://paypal.me/xMickosis). This is not mandatory as everything is already provided in this. There's no guarantee it will work on your server but I'll do my best to help you set it up and give it its best shot. I will entertain your questions depending on how much you decide to donate. Don't expect a code rework for 1$. After sending the donation, message me on [Twitter](https://twitter.com/Mickosis) with the donation information to get started.
+
+***
+
+STEPS:
 Downloads Required:
 
 Windows 7 - Lite preferred<br />
