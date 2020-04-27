@@ -11,6 +11,8 @@ AGREEMENT:
 SUPPORT FOR DEVELOPER:
 1. Please consider donating [here](https://paypal.me/xMickosis) if this bot worked and saved you from all the scammers out there.
 2. If you want me to help you in setting it up, I may do so if you donate [here](https://paypal.me/xMickosis). This is not mandatory as everything is already provided in this. There's no guarantee it will work on your server but I'll do my best to help you set it up and give it its best shot. I will entertain your questions depending on how much you decide to donate. Don't expect a code rework for 1$. After sending the donation, message me on [Twitter](https://twitter.com/Mickosis) with the donation information to get started.
+(For an idea: at least 10$ gets you limited answers/support and the .exe file. 20$ I'll give you advanced support/advice and the .exe file. 50$ will have priority support and .exe file)
+3. Again, getting donation and support WILL NOT guarantee it working on your server. I am not responsible for any limitation this bot may encounter. C'mon, it's open-sourced already. 
 
 ***
 
