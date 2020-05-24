@@ -32,7 +32,7 @@ GRF Editor - https://rathena.org/board/files/file/2766-grf-editor/
 2. Disable UAC on Windows 7 (restart)
 3. Set resolution to `1024x768`
 4. Set RO resolution to `800x600`
-5. Set RO to upper right corner of the desktop (as in yung borders nung RO saktong sakto)
+5. Set RO to upper right corner of the desktop (make the borders exact)
 6. Drag a working RO client into your VM
 7. Delete `AuthModuleCache` folder (if any)
 8. Set both Ragnarok Patcher and RAGEXE to Run on Windows XP Service Pack 3 (Right click Properties)
