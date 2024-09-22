@@ -1,3 +1,6 @@
+> [!WARNING]  
+> This is outdated and probably won't work unless you modify a whole lot.
+
 ***
 
 AGREEMENT:
