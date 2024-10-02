@@ -58,10 +58,10 @@ While 1
 			Exit
 		Case $btnStart
 			Sleep(500)
-			Call("Start")
+			Start()
 		Case $btnStop
 			Sleep(500)
-			Call("Stop")
+			Stop()
 	EndSwitch
 WEnd
 
@@ -70,10 +70,11 @@ Func Start()
 	$PASSWORDINPUT = GUICtrlRead($PWTextBox)
 	$WALKTOTELEINPUT = GUICtrlRead($WTTextBox)
 	$EMOTEINPUT = GUICtrlRead($EmoteTextBox)
+
 	If $STOPPED = 1 Then
 		While $STOPPED = 1
 			If WinExists("Ragnarok") Then
-				Call("Battle")
+				Battle()
 			Else
 				MouseMove(977, 38, 0)
 				MouseClick($MOUSE_CLICK_LEFT)
@@ -88,85 +89,41 @@ Func Battle()
 	Call("Potion")
 	WinActivate("Ragnarok")
 	$DISCONNECT = PixelSearch(0, 0, @DesktopWidth, @DesktopHeight, 10872642)
+
 	If IsArray($DISCONNECT) Then
 		MouseClick("Primary", $DISCONNECT[0] + 0, $DISCONNECT[1] + 0, 5, 0)
 		Sleep(100)
-	Else
-		$LOOTER = PixelSearch(341, 245, 490, 400, 8667788)
-		If IsArray($LOOTER) Then
-			Sleep(100)
-			MouseClick("Primary", $LOOTER[0] + 20, $LOOTER[1] + 20, 5, 0)
-		Else
-			$LOOTER2 = PixelSearch(341, 245, 490, 400, 7023013)
-			If IsArray($LOOTER2) Then
-				Sleep(100)
-				MouseClick("Primary", $LOOTER2[0] + 20, $LOOTER2[1] + 20, 5, 0)
-			Else
-				$MOBS1 = PixelSearch(358, 259, 451, 366, 65280)
-				If IsArray($MOBS1) Then
-					Sleep(100)
-					MouseClick("Primary", $MOBS1[0] + 25, $MOBS1[1] + 25, 3, 0)
-				Else
-					$MOBS = PixelSearch(188, 227, 309, 458, 65280)
-					If IsArray($MOBS) Then
-						Sleep(100)
-						MouseClick("Primary", $MOBS[0] + 25, $MOBS[1] + 25, 3, 0)
-					Else
-						$MOBS2 = PixelSearch(195, 212, 342, 597, 65280)
-						If IsArray($MOBS2) Then
-							Sleep(100)
-							MouseClick("Primary", $MOBS2[0] + 25, $MOBS2[1] + 25, 3, 0)
-						Else
-							$MOBS3 = PixelSearch(354, 361, 445, 592, 65280)
-							If IsArray($MOBS3) Then
-								Sleep(100)
-								MouseClick("Primary", $MOBS3[0] + 25, $MOBS3[1] + 25, 3, 0)
-							Else
-								$MOBS4 = PixelSearch(465, 206, 64, 594, 65280)
-								If IsArray($MOBS4) Then
-									Sleep(100)
-									MouseClick("Primary", $MOBS4[0] + 25, $MOBS4[1] + 25, 3, 0)
-
-								Else
-									$MOBS5 = PixelSearch(646, 194, 796, 594, 65280)
-									If IsArray($MOBS5) Then
-										Sleep(100)
-										MouseClick("Primary", $MOBS5[0] + 25, $MOBS5[1] + 25, 3, 0)
-
-									Else
-										$MOBS6 = PixelSearch(248, 73, 664, 257, 65280)
-										If IsArray($MOBS6) Then
-											Sleep(100)
-											MouseClick("Primary", $MOBS6[0] + 25, $MOBS6[1] + 25, 3, 0)
-
-
-										Else
-											$MOBS7 = PixelSearch(30, 227, 201, 603, 65280)
-											If IsArray($MOBS7) Then
-												Sleep(100)
-												MouseClick("Primary", $MOBS7[0] + 25, $MOBS7[1] + 25, 3, 0)
-
-
-											Else
-												Sleep(100)
-												$LOGINFLAG = PixelSearch(0, 0, @DesktopWidth, @DesktopHeight, 16711812)
-												If IsArray($LOGINFLAG) Then
-													Call("Login")
-												Else
-													Call("Potion")
-													Call("Walk")
-												EndIf
-											EndIf
-										EndIf
-									EndIf
-								EndIf
-							EndIf
-						EndIf
-					EndIf
-				EndIf
-			EndIf
-		EndIf
+		Return
 	EndIf
+	
+	$LOOTER = PixelSearch(341, 245, 490, 400, 8667788)
+	$MOBS = [
+		PixelSearch(358, 259, 451, 366, 65280),
+		PixelSearch(188, 227, 309, 458, 65280),
+		PixelSearch(195, 212, 342, 597, 65280),
+		PixelSearch(354, 361, 445, 592, 65280),
+		PixelSearch(465, 206, 64, 594, 65280),
+		PixelSearch(646, 194, 796, 594, 65280),
+		PixelSearch(248, 73, 664, 257, 65280),
+		PixelSearch(30, 227, 201, 603, 65280)
+	]
+
+	For $i = 0 To UBound($MOBS) - 1
+		If IsArray($MOBS[$i]) Then
+			Sleep(100)
+			MouseClick("Primary", $MOBS[$i][0] + 25, $MOBS[$i][1] + 25, 3, 0)
+			Return
+		EndIf
+	Next
+
+	$LOGINFLAG = PixelSearch(0, 0, @DesktopWidth, @DesktopHeight, 16711812)
+	If IsArray($LOGINFLAG) Then
+		Call("Login")
+		Return
+	EndIf
+	
+	Call("Potion")
+	Call("Walk")
 EndFunc   ;==>Battle
 
 Func Potion()
@@ -178,8 +135,8 @@ Func Potion()
 EndFunc   ;==>Potion
 
 Func Walk()
-	$EMOTICONCOUNT = $EMOTICONCOUNT + 1
-	If $EMOTICONCOUNT = $EMOTEINPUT Then
+	$EMOTICONCOUNT += 1
+	If $EMOTICONCOUNT >= $EMOTEINPUT Then
 		Send("!1")
 		$EMOTICONCOUNT = 0
 	EndIf
@@ -188,13 +145,11 @@ EndFunc   ;==>Walk
 
 Func Teleport()
 	$FLYWINGCHECK = GUICtrlRead($FlyWing)
-	If $FLYWINGCHECK = 1 Then
-		If $WALKTOTELE = $WALKTOTELEINPUT Then
-			Sleep(300)
-			Send("{F9}")
-			Sleep(1000)
-			$WALKTOTELE = 0
-		EndIf
+	If $FLYWINGCHECK = 1 Or $WALKTOTELE = $WALKTOTELEINPUT Then
+		Sleep(300)
+		Send("{F9}")
+		Sleep(1000)
+		$WALKTOTELE = 0
 	Else
 		If $WALKTOTELE = $WALKTOTELEINPUT Then
 			Sleep(300)
@@ -217,188 +172,25 @@ Func _Exit()
 	Exit
 EndFunc   ;==>_Exit
 
-Func WalkUp()
+Func Walk($x, $y)
 	Global $WALKCOUNT = 0
 	Do
 		Send("{SPACE}")
-		MouseMove(406, 169, 5)
+		MouseMove($x, $y, 5)
 		Sleep(100)
-		MouseDown("Primary")
-		Sleep(500)
-		MouseUp("Primary")
+		MouseClick("Primary", $x, $y, 5, 0)
 		Sleep(100)
-		$WALKCOUNT = $WALKCOUNT + 1
-		$WALKTOTELE = $WALKTOTELE + 1
+		$WALKCOUNT += 1
+		$WALKTOTELE += 1
 		Call("Teleport")
 	Until $WALKCOUNT = 3
-EndFunc   ;==>WalkUp
+EndFunc   ;==>Walk
 
-Func WalkDown()
-	Global $WALKCOUNT = 0
-	Do
-		Send("{SPACE}")
-		MouseMove(405, 514, 5)
-		Sleep(100)
-		MouseDown("Primary")
-		Sleep(500)
-		MouseUp("Primary")
-		Sleep(100)
-		$WALKCOUNT = $WALKCOUNT + 1
-		$WALKTOTELE = $WALKTOTELE + 1
-		Call("Teleport")
-	Until $WALKCOUNT = 3
-EndFunc   ;==>WalkDown
-
-Func WalkLeft()
-	Global $WALKCOUNT = 0
-	Do
-		Send("{SPACE}")
-		MouseMove(206, 321, 5)
-		Sleep(100)
-		MouseDown("Primary")
-		Sleep(500)
-		MouseUp("Primary")
-		Sleep(100)
-		$WALKCOUNT = $WALKCOUNT + 1
-		$WALKTOTELE = $WALKTOTELE + 1
-		Call("Teleport")
-	Until $WALKCOUNT = 3
-EndFunc   ;==>WalkLeft
-
-Func WalkRight()
-	Global $WALKCOUNT = 0
-	Do
-		Send("{SPACE}")
-		MouseMove(629, 320, 5)
-		Sleep(100)
-		MouseDown("Primary")
-		Sleep(500)
-		MouseUp("Primary")
-		Sleep(100)
-		$WALKCOUNT = $WALKCOUNT + 1
-		$WALKTOTELE = $WALKTOTELE + 1
-		Call("Teleport")
-	Until $WALKCOUNT = 3
-EndFunc   ;==>WalkRight
-
-Func WalkUpperLeft()
-	Global $WALKCOUNT = 0
-	Do
-		Send("{SPACE}")
-		MouseMove(294, 198, 5)
-		Sleep(100)
-		MouseDown("Primary")
-		Sleep(500)
-		MouseUp("Primary")
-		Sleep(100)
-		$WALKCOUNT = $WALKCOUNT + 1
-		$WALKTOTELE = $WALKTOTELE + 1
-		Call("Teleport")
-	Until $WALKCOUNT = 3
-EndFunc   ;==>WalkUpperLeft
-
-Func WalkUpperRight()
-	Global $WALKCOUNT = 0
-	Do
-		Send("{SPACE}")
-		MouseMove(539, 197, 5)
-		Sleep(100)
-		MouseDown("Primary")
-		Sleep(500)
-		MouseUp("Primary")
-		Sleep(100)
-		$WALKCOUNT = $WALKCOUNT + 1
-		$WALKTOTELE = $WALKTOTELE + 1
-		Call("Teleport")
-	Until $WALKCOUNT = 3
-EndFunc   ;==>WalkUpperRight
-
-Func WalkLowerLeft()
-	Global $WALKCOUNT = 0
-	Do
-		Send("{SPACE}")
-		MouseMove(254, 411, 5)
-		Sleep(100)
-		MouseDown("Primary")
-		Sleep(500)
-		MouseUp("Primary")
-		Sleep(100)
-		$WALKCOUNT = $WALKCOUNT + 1
-		$WALKTOTELE = $WALKTOTELE + 1
-		Call("Teleport")
-	Until $WALKCOUNT = 3
-EndFunc   ;==>WalkLowerLeft
-
-Func WalkLowerRight()
-	Global $WALKCOUNT = 0
-	Do
-		Send("{SPACE}")
-		MouseMove(522, 388, 5)
-		Sleep(100)
-		MouseDown("Primary")
-		Sleep(100)
-		MouseUp("Primary")
-		Sleep(500)
-		$WALKCOUNT = $WALKCOUNT + 1
-		$WALKTOTELE = $WALKTOTELE + 1
-		Call("Teleport")
-	Until $WALKCOUNT = 3
-EndFunc   ;==>WalkLowerRight
-
-Func Login()
-	$WALKTOTELE = 0
-	Send($PASSWORDINPUT)
-	Sleep(5000)
-	Send("{ENTER}")
-	Sleep(5000)
-	Send("{ENTER}")
-	Sleep(5000)
-	$PINCODE1 = PixelSearch(0, 0, @DesktopWidth, @DesktopHeight, 16762450)
-	If IsArray($PINCODE1) Then
-		MouseMove($PINCODE1[0] + 10, $PINCODE1[1] + 10, 5)
-		Sleep(500)
-		MouseDown("Primary")
-		Sleep(500)
-		MouseUp("Primary")
-		Sleep(500)
-		$PINCODE2 = PixelSearch(0, 0, @DesktopWidth, @DesktopHeight, 65280)
-		If IsArray($PINCODE2) Then
-			MouseMove($PINCODE2[0] + 10, $PINCODE2[1] + 10, 5)
-			Sleep(500)
-			MouseDown("Primary")
-			Sleep(500)
-			MouseUp("Primary")
-			Sleep(500)
-		EndIf
-		$PINCODE3 = PixelSearch(0, 0, @DesktopWidth, @DesktopHeight, 65280)
-		If IsArray($PINCODE3) Then
-			MouseMove($PINCODE3[0] + 10, $PINCODE3[1] + 10, 5)
-			Sleep(500)
-			MouseDown("Primary")
-			Sleep(500)
-			MouseUp("Primary")
-			Sleep(500)
-		EndIf
-		$PINCODE4 = PixelSearch(0, 0, @DesktopWidth, @DesktopHeight, 10826223)
-		If IsArray($PINCODE4) Then
-			MouseMove($PINCODE4[0] + 10, $PINCODE4[1] + 10, 5)
-			Sleep(500)
-			MouseDown("Primary")
-			Sleep(500)
-			MouseUp("Primary")
-			Sleep(500)
-		EndIf
-		$CONFIRM = PixelSearch(0, 0, @DesktopWidth, @DesktopHeight, 11403049)
-		If IsArray($CONFIRM) Then
-			MouseMove($CONFIRM[0] + 10, $CONFIRM[1] + 10, 5)
-			Sleep(500)
-			MouseDown("Primary")
-			Sleep(500)
-			MouseUp("Primary")
-			Sleep(500)
-			Send("{ENTER}")
-			Sleep(3000)
-		EndIf
-	EndIf
-EndFunc   ;==>Login
-
+Func WalkUp() Walk(406, 169) EndFunc   ;==>WalkUp
+Func WalkDown() Walk(405, 514) EndFunc ;==>WalkDown
+Func WalkLeft() Walk(206, 321) EndFunc ;==>WalkLeft
+Func WalkRight() Walk(629, 320) EndFunc ;==>WalkRight
+Func WalkUpperLeft() Walk(232, 227) EndFunc ;==>WalkUpperLeft
+Func WalkUpperRight() Walk(562, 227) EndFunc ;==>WalkUpperRight
+Func WalkLowerLeft() Walk(232, 418) EndFunc ;==>WalkLowerLeft
+Func WalkLowerRight() Walk(562, 418) EndFunc ;==>WalkLowerRight
